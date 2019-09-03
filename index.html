@@ -1,24 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Crystal Game</title>
     <!--add the jquery script-->
-    <!--add the js script for external js file-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!--add link for external css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--add bootstrap link-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
+
 <body>
-    <!--need to add images of four crystals that can be made into buttons <img src="" alt="">-->
+
     <h1>Crystal Collector</h1>
-    <p><!--game instructions--></p>
 
-    <div id="computerguess"></div>
-    <div id="wins"></div>
-    <div id="losses"></div>
-    <div id="total-score"></div>
+    <div class="container">
+        <h5>Game Instructions:</h5>
+        <p>The object of the game is to make your total score match the computer's random number.</p>
+        <p>
+            <ul>
+                <li>The computer will pick and display a random number.</li>
+                <li>Below are 4 crystals that each have a random value.</li>
+                <li>Click on any crystal to get your total score to match the computer's random guess.</li>
+            </ul>
+        </p>
+    </div>
 
-    
+    <!--nadd images of four crystals that can be made into buttons <img src="" alt="">-->
+    <div class="container" id="crystal-box">
+        <div class="row">
+            <div class="col-md-3">
+                <button class="add" id="green-button"><img src="assets/images/emerald.jpg" alt="Emerals"></button>
+            </div>
+            <div class="col-md-3">
+                <button class="add" id="ruby-button"><img src="assets/images/ruby.jpg" alt="Ruby"></button>
+            </div>
+            <div class="col-md-3">
+                <button class="add" id="yellow-button"><img src="assets/images/canary.jpg" alt="Canary Diamond"></button>
+            </div>
+            <div class="col-md-3">
+                <button class="add" id="blue-button"><img src="assets/images/sapphire.jpg" alt=""></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="border-right: 2px solid black">
+                <div id="computer-guess"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="total-score"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6" style="border-right: 2px solid black">
+                <div id="wins"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="losses"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--add the js script for external js file-->
+    <script src="assets/javascript/game.js"></script>
+
 </body>
+
 </html>

@@ -1,26 +1,100 @@
 //goal of the game is to click on the crystals to match the
 //computers randomly generated number.
 
-//create variable for computer's random guess
+//create variable for computer's random guess between 19 and 120.
+//Math.floor(Math.random() * ((y-x)+1) + x); where x is start number and y is end number.
+var computerGuess = $("#computer-guess");//query html for computer guess id
+var assignComputerGuess = function () {
+    computerGuess = Math.floor(Math.random() * ((120 - 19) + 1) + 1);
+    $("#computer-guess").text("Computer's Guess:  " + computerGuess);
+}
+assignComputerGuess();
+console.log(assignComputerGuess);
+console.log(computerGuess);
 
 //create variables wins and losses
+var wins = 0;
+$("#wins").text("Wins:  " + wins);
+console.log(wins);
 
-//create variable for total score: total score should be an accumulation of points from the crystals clicked
-
-//create variables for crystals' random value. crystal value should be hidden, but don't think special
-//coding needed to hide them so much as not display them.
+var losses = 0;
+$("#losses").text("Losses:  " + losses);
+console.log(losses);
 
 //create variable/function for game reset:
-    //total score reset to 0;
-    //new computer guess generated;
-    //new crystal values/guesses generated;
+//total score reset to 0;
+//new computer guess generated;
+//new crystal values/guesses generated;
+var gameReset = function () {
+    totalScore = 0;
+    assignComputerGuess();
+    assignCanaryCrystal();
+    assignEmeraldCrystal();
+    assignRubyCrystal();
+    assignSapphireCrystal();
+}
 
-//if user's score === computer number:
-    //wins++
-    //game resets
-    //alert "you win"
+//create variables for crystals' random value. 
+//Crystal Value should not be displayed. 
+//Value should be 1-12;
+//Need click event to add crystal value to total score: 4 click events?
 
-//if user's score !== computer number:
-    //losses++
-    //game resets
-    //alert "you lose"
+$("#green-button").on("click", function(){
+    var emeraldCrystal = $("#green-button");
+    var assignEmeraldCrystal = function () {
+        emeraldCrystal = Math.floor(Math.random() * 12) + 1;
+    }
+    assignEmeraldCrystal();
+    console.log(emeraldCrystal);
+});
+
+$("#ruby-button").on("click", function(){
+    var rubyCrystal = $("#ruby-button");
+    var assignRubyCrystal = function () {
+        rubyCrystal = Math.floor(Math.random() * 12) + 1;
+    }
+    assignRubyCrystal();
+    console.log(rubyCrystal);
+});
+
+$("#yellow-button").on("click", function(){
+    var canaryCrystal = $("#yellow-button");
+var assignCanaryCrystal = function () {
+    canaryCrystal = Math.floor(Math.random() * 12) + 1;
+}
+assignCanaryCrystal();
+console.log(canaryCrystal);
+});
+
+$("#blue-button").on("click", function(){
+    var sapphireCrystal = $("#blue-button");
+    var assignSapphireCrystal = function () {
+        sapphireCrystal = Math.floor(Math.random() * 12) + 1;
+    }
+    assignSapphireCrystal();
+    console.log(sapphireCrystal);
+});
+
+
+//create variable for total score: 
+//total score should be an accumulation of points from the crystals clicks
+$(".add").click(function(){
+    var totalScore = $("#total-score");
+    var newTotalScore = parseInt("sapphireCrystal") + parseInt("canaryCrystal") + parseInt("rubyCrystal") + parseInt("emeraldCrystal");
+    $("#total-score").text("Total Score:  " + newTotalScore);
+    console.log(totalScore);
+});
+
+
+
+/*//below ifs should be part of the total score function?
+//if totalScore === computersGuess:
+    //wins++;
+    //gameReset();
+    //alert("You Win!");
+
+//if totalScore>computerGuess:
+    //losses++;
+    //gameReset();
+    //alert("You Lose...Try Again!");
+*/
