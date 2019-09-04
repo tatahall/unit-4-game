@@ -28,7 +28,8 @@ console.log(losses);
 //new computer guess generated;
 //new crystal values/guesses generated;
 var gameReset = function () {
-    newTotalScoreCounter = 0;
+    totalScoreCounter = 0;
+    $("#total-score").text("Total Score: " + totalScoreCounter);
     assignComputerGuess();
 }
 
@@ -76,6 +77,19 @@ $("#ruby-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += rubyCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
+    if (totalScoreCounter === computerGuess) {
+        wins++;
+        $("#wins").text("Wins:  " + wins);
+        gameReset();
+        alert("You Win!");
+    }
+    
+    else if (totalScoreCounter > computerGuess) {
+        losses++;
+        $("#losses").text("Losses: " + losses);
+        gameReset();
+        alert("You Lose...Try Again!");
+    } 
 });
 
 $("#yellow-button").on("click", function () {
@@ -88,6 +102,19 @@ $("#yellow-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += canaryCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
+    if (totalScoreCounter === computerGuess) {
+        wins++;
+        $("#wins").text("Wins:  " + wins);
+        gameReset();
+        alert("You Win!");
+    }
+    
+    else if (totalScoreCounter > computerGuess) {
+        losses++;
+        $("#losses").text("Losses: " + losses);
+        gameReset();
+        alert("You Lose...Try Again!");
+    } 
 });
 
 $("#blue-button").on("click", function () {
@@ -100,6 +127,19 @@ $("#blue-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += sapphireCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
+    if (totalScoreCounter === computerGuess) {
+        wins++;
+        $("#wins").text("Wins:  " + wins);
+        gameReset();
+        alert("You Win!");
+    }
+    
+    else if (totalScoreCounter > computerGuess) {
+        losses++;
+        $("#losses").text("Losses: " + losses);
+        gameReset();
+        alert("You Lose...Try Again!");
+    } 
 });
 
 
