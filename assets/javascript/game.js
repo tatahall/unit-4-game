@@ -34,6 +34,15 @@ var gameReset = function () {
     assignSapphireCrystal();
 }
 
+var totalScore = 0;
+function newTotalScore(value){
+    $("#total-score").text("Total Score: " + totalScore);
+    console.log(totalScore);
+}
+
+newTotalScore();
+console.log(newTotalScore);
+
 //create variables for crystals' random value. 
 //Crystal Value should not be displayed. 
 //Value should be 1-12;
@@ -48,6 +57,7 @@ $("#green-button").on("click", function(){
     console.log(emeraldCrystal);
 });
 
+/*
 $("#ruby-button").on("click", function(){
     var rubyCrystal = $("#ruby-button");
     var assignRubyCrystal = function () {
@@ -78,23 +88,24 @@ $("#blue-button").on("click", function(){
 
 //create variable for total score: 
 //total score should be an accumulation of points from the crystals clicks
-$(".add").click(function(){
-    var totalScore = $("#total-score");
-    var newTotalScore = parseInt("sapphireCrystal") + parseInt("canaryCrystal") + parseInt("rubyCrystal") + parseInt("emeraldCrystal");
-    $("#total-score").text("Total Score:  " + newTotalScore);
+
+/*function score(){
+    var totalScore = 0;
+    var newTotalScore =  //this is wrong
+    $("#total-score").text("Total Score:  " + newTotalScore); // this is correct because I need to display
     console.log(totalScore);
-});
+   
+    if (newTotalScore === computersGuess){
+        wins++;
+        gameReset();
+        alert("You Win!");
+    }
+    
+    if (newTotalScore > computerGuess) {
+    
+    losses++;
+    gameReset();
+    alert("You Lose...Try Again!");
+}
+);}*/
 
-
-
-/*//below ifs should be part of the total score function?
-//if totalScore === computersGuess:
-    //wins++;
-    //gameReset();
-    //alert("You Win!");
-
-//if totalScore>computerGuess:
-    //losses++;
-    //gameReset();
-    //alert("You Lose...Try Again!");
-*/
