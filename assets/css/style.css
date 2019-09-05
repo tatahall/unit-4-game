@@ -18,7 +18,20 @@ body{
     padding: 30px 15px 30px 90px;
 }
 
-
 h1{
     text-align: center;
+}
+
+#winloss-box{
+    padding: 50px;
+}
+
+#guess-box{
+padding: 50px;
+}
+
+#cpguess, #tsbox, #wbox, #lbox {
+    border: 3px dotted black;
+    padding: 5px;
+    font: bolder;
 }

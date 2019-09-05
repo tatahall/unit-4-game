@@ -37,21 +37,7 @@ var gameReset = function () {
 var totalScoreCounter = 0;
 $("#total-score").text("Total Score: " + totalScoreCounter);
 
-//create variables for crystals' random value. 
-//Crystal Value should not be displayed. 
-//Value should be 1-12;
-//Need click event to add crystal value to total score: 4 click events?
-
-$("#green-button").on("click", function () {
-    var emeraldCrystal = $("#green-button");
-    var assignEmeraldCrystal = function () {
-        emeraldCrystal = Math.floor(Math.random() * 12) + 1;
-    }
-    assignEmeraldCrystal();
-    console.log(emeraldCrystal);
-    var newTotalScoreCounter = totalScoreCounter += emeraldCrystal;
-    $("#total-score").text("Total Score: " + newTotalScoreCounter);
-    console.log(newTotalScoreCounter);
+function winsandlosses(){
     if (totalScoreCounter === computerGuess) {
         wins++;
         $("#wins").text("Wins:  " + wins);
@@ -64,7 +50,27 @@ $("#green-button").on("click", function () {
         $("#losses").text("Losses: " + losses);
         gameReset();
         alert("You Lose...Try Again!");
-    }    
+    }
+}
+
+//create variables for crystals' random value. 
+//Crystal Value should not be displayed. 
+//Value should be 1-12;
+//Need click event to add crystal value to total score: 4 click events?
+//create variable for total score: 
+//total score should be an accumulation of points from the crystals clicks
+
+$("#green-button").on("click", function () {
+    var emeraldCrystal = $("#green-button");
+    var assignEmeraldCrystal = function () {
+        emeraldCrystal = Math.floor(Math.random() * 12) + 1;
+    }
+    assignEmeraldCrystal();
+    console.log(emeraldCrystal);
+    var newTotalScoreCounter = totalScoreCounter += emeraldCrystal;
+    $("#total-score").text("Total Score: " + newTotalScoreCounter);
+    console.log(newTotalScoreCounter);
+    winsandlosses();
 });
 
 $("#ruby-button").on("click", function () {
@@ -77,19 +83,7 @@ $("#ruby-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += rubyCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
-    if (totalScoreCounter === computerGuess) {
-        wins++;
-        $("#wins").text("Wins:  " + wins);
-        gameReset();
-        alert("You Win!");
-    }
-    
-    else if (totalScoreCounter > computerGuess) {
-        losses++;
-        $("#losses").text("Losses: " + losses);
-        gameReset();
-        alert("You Lose...Try Again!");
-    } 
+    winsandlosses();
 });
 
 $("#yellow-button").on("click", function () {
@@ -102,19 +96,8 @@ $("#yellow-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += canaryCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
-    if (totalScoreCounter === computerGuess) {
-        wins++;
-        $("#wins").text("Wins:  " + wins);
-        gameReset();
-        alert("You Win!");
-    }
+    winsandlosses();
     
-    else if (totalScoreCounter > computerGuess) {
-        losses++;
-        $("#losses").text("Losses: " + losses);
-        gameReset();
-        alert("You Lose...Try Again!");
-    } 
 });
 
 $("#blue-button").on("click", function () {
@@ -127,35 +110,9 @@ $("#blue-button").on("click", function () {
     var newTotalScoreCounter = totalScoreCounter += sapphireCrystal;
     $("#total-score").text("Total Score: " + newTotalScoreCounter);
     console.log(newTotalScoreCounter);
-    if (totalScoreCounter === computerGuess) {
-        wins++;
-        $("#wins").text("Wins:  " + wins);
-        gameReset();
-        alert("You Win!");
-    }
-    
-    else if (totalScoreCounter > computerGuess) {
-        losses++;
-        $("#losses").text("Losses: " + losses);
-        gameReset();
-        alert("You Lose...Try Again!");
-    } 
+   winsandlosses();
 });
 
 
-//create variable for total score: 
-//total score should be an accumulation of points from the crystals clicks
 
-/*if (totalScoreCounter === computerGuess) {
-    wins++;
-    $("#wins").text("Wins:  " + wins);
-    gameReset();
-    alert("You Win!");
-}
 
-else if (totalScoreCounter > computerGuess) {
-    losses++;
-    $("#losses").text("Losses: " + losses);
-    gameReset();
-    alert("You Lose...Try Again!");
-}*/
